@@ -8,3 +8,9 @@ module "ec2_instance" {
   instance_type = "t3.micro"
   subnet_id_value = "subnet-01f68b874605475e6"
 }
+
+module "s3_bucket" {
+  source= "./modules/s3_bucket"
+  bucket_name = "devadathan-s3-bucket"
+}
+
