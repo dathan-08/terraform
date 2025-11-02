@@ -103,6 +103,16 @@ resource "aws_instance" "example" {
   tags = {
     Name = "two-tier-instance"
   }
+
+}
+
+resource "aws_eip" "two_tier_eip" {
+  instance = aws_instance.example.id
+  # vpc      = true
+
+  tags = {
+    Name = "two-tier-eip"
+  }
 }
 
 

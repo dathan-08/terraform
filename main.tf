@@ -9,8 +9,19 @@ module "ec2_instance" {
   subnet_id_value = "subnet-06083ff91e1b2459c"
 }
 
-module "s3_bucket" {
-  source= "./modules/s3_bucket"
-  bucket_name = "devadathan-s3-bucket"
+# module "s3_bucket" {
+#   source= "./modules/s3_bucket"
+#   bucket_name = "devadathan-s3-bucket"
+# }
+
+
+output "elastic_ip" {
+  description = "Elastic IP Address"
+  value       = module.ec2_instance.elastic_ip
+}
+
+output "app_url" {
+  description = "Application URL"
+  value       = module.ec2_instance.app_url
 }
 
